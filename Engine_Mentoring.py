@@ -119,9 +119,9 @@ with st.form(key='feedback', clear_on_submit=True):
             {
                 "user_name": user_name,
                 "data_obj": data_obj,
-                "response_feedback": response_feedback,
+                "response_feedback": str(response_feedback),
                 "rewrite": rewrite,
-                "task_feedback": task_feedback
+                "task_feedback": str(task_feedback)
             },
             "multi-engine-mentoring"
         )
