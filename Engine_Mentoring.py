@@ -7,6 +7,7 @@ from firebase.firebase_utils import write_task_item
 # wide
 st.set_page_config(layout="wide")
 
+FB_DB = "1-23-multi-engine-mentoring-2"
 
 data_fn = "mmem_1_17_B.csv"
 DATASET = pd.read_csv(data_fn)
@@ -26,20 +27,21 @@ def process_conv(conv):
 
 def sample_data_row(DATASET):
 
-    #row = DATASET.sample(n=1).iloc[0]
+    row = DATASET.sample(n=1).iloc[0]
 
-    #load index
-    with open('index.json', 'r') as f:
-        inds = json.load(f)
+
+    # #load index
+    # with open('index.json', 'r') as f:
+    #     inds = json.load(f)
     
-    #sample index
-    ind = inds.pop(0)
+    # #sample index
+    # ind = inds.pop(0)
 
-    #save index
-    with open('index.json', 'w') as f:
-        json.dump(inds, f)
+    # #save index
+    # with open('index.json', 'w') as f:
+    #     json.dump(inds, f)
 
-    row = DATASET.iloc[ind]
+    # row = DATASET.iloc[ind]
 
 
     PREAMBLE = row['checklist']
@@ -123,5 +125,5 @@ with st.form(key='feedback', clear_on_submit=True):
                 "rewrite": rewrite,
                 "task_feedback": str(task_feedback)
             },
-            "multi-engine-mentoring"
+            FB_DB
         )
